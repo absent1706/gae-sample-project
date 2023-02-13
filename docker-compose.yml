@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+    # flask requires SIGINT to stop gracefully
+    # (default stop signal from Compose is SIGTERM)
+    stop_signal: SIGINT
+    ports:
+      - '8080:8080'
+
+    # local-only part
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /app/google-credentials.json
+    volumes:
+      - ${GOOGLE_APPLICATION_CREDENTIALS}:/app/google-credentials.json
+

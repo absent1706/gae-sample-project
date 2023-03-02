@@ -15,7 +15,8 @@
 # [START gae_flex_quickstart]
 from flask import Flask
 import logging
-from google.oauth2 import service_account
+import os
+
 from google.cloud import error_reporting
 from dotenv import load_dotenv
 
@@ -32,7 +33,7 @@ def hello():
     """Return a friendly HTTP greeting."""
     print('PRINT')
     logging.info('this is log entry')
-    return 'Hello World!'
+    return f'Hello World from version {os.getenv("GAE_VERSION")}!'
 
 
 @app.route('/500')

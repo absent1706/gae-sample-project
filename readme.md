@@ -12,3 +12,5 @@ Get JSON file with GCP service account creds, paste path to `.env`
 
 `gcloud app deploy --version YOUR-VERSION`
 
+Stream logs:
+`gcloud app logs tail`

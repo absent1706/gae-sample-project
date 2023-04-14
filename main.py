@@ -53,22 +53,22 @@ def hello():
            f' \n <pre>{pformat(urls)}</pre> \n'
 
 
-@app.route('/route1')
+@app.route('/public/route1')
 def public_route1():
     return f'public route 1 \n {_request_info()}'
 
 
-@app.route('/route2')
+@app.route('/public/route2')
 def public_route2():
     return f'public route 2 \n {_request_info()}'
 
 
-@app.route('/private/route1')
+@app.route('/private-route1')
 def private_route1():
     return f'private route 1 \n {_request_info()}'
 
 
-@app.route('/private/route2')
+@app.route('/private-route2')
 def private_route2():
     return f'private route 2 \n {_request_info()}'
 

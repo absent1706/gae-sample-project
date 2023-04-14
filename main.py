@@ -36,6 +36,26 @@ def hello():
     return f'Hello World from version {os.getenv("GAE_VERSION")}!'
 
 
+@app.route('/api/route1')
+def page1():
+    return f'public api 1'
+
+
+@app.route('/api/route2')
+def page2():
+    return f'public api 2'
+
+
+@app.route('/api/private/route1')
+def page1():
+    return f'private api 1'
+
+
+@app.route('/api/private/route2')
+def page2():
+    return f'private api 2'
+
+
 @app.route('/500')
 def error_path():
     raise ValueError('another test error')

@@ -83,6 +83,15 @@ def error2_path():
     raise NameError('test NameError')
 
 
+@app.errorhandler(404)
+def resource_not_found(e):
+    urls = [rule.rule for rule in app.url_map.iter_rules()]
+    response = f'{e} \n {_request_info()}' \
+               f'\n ======= URLs available: ========= \n' \
+               f' \n <pre>{pformat(urls)}</pre> \n'
+    return response, 404
+
+
 @app.errorhandler(Exception)
 def handler(exception):
     # error_reporting_client.report_exception()
